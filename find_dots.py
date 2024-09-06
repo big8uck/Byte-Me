@@ -3,6 +3,11 @@ def find_dots(imgnr):
     import numpy as np
 
     image = cv2.imread("IMG_" + imgnr + ".jpg")
+    
+    if image is None:
+        print("Error: Image not found or could not be loaded.")
+        return []
+
     hsv = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
 
     # Adjust the HSV range for green detection (more restrictive)
